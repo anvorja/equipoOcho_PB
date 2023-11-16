@@ -6,5 +6,7 @@ import java.io.Serializable
 
 @Entity
 data class Retos(
-
+    @PrimaryKey(autoGenerate = true)
+    val id:Int = 0,
+    val name:String
 ):Serializable

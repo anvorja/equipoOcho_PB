@@ -7,5 +7,5 @@ import com.example.equipo8.model.Retos
 @Dao
 interface RetosDao {
     @Query("SELECT * FROM Retos")
-    suspend fun getListInventory(): MutableList<Retos>
+    suspend fun obtenerListadoRetos(): MutableList<Retos>
 }

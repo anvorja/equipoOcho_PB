@@ -8,11 +8,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class RetosRepository(val context:Context) {
-    private var  retosDao: RetosDao = RetosBaseDatos.getDatabase(context).challengesDao()
+    private var  retosDao: RetosDao = RetosBaseDatos.getBaseDatos(context).retosDao()
 
-    suspend fun getListInventory():MutableList<Retos>{
+    suspend fun obtenerListaRetos():MutableList<Retos>{
         return withContext(Dispatchers.IO){
-            retosDao.getListInventory()
+            retosDao.obtenerListadoRetos()
         }
     }
 

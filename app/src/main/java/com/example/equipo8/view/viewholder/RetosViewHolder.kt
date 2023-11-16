@@ -5,9 +5,9 @@ import com.example.equipo8.databinding.ChallengesInventoryBinding
 import com.example.equipo8.model.Retos
 
 class RetosViewHolder (binding : ChallengesInventoryBinding):RecyclerView.ViewHolder(binding.root) {
-    val bindingChallenge = binding
+    val bindingReto = binding
 
-    fun setChallengeInventory(retos: Retos){
-        bindingChallenge.challengeDescription.text =  retos.name
+    fun cargarDatosReto(retos: Retos){
+        bindingReto.descripcionDelReto.text =  retos.name
     }
 }

@@ -17,7 +17,10 @@ class RetosViewModel(application: Application):AndroidViewModel(application) {
 
     val listInventory: LiveData<MutableList<Retos>> get() = _listInventory
 
-    fun getListInvetory(){
+    fun obtenerListaDeRetos(){
+        viewModelScope.launch {
+            _listInventory.value = retosRepository.obtenerListaRetos()
 
+        }
     }
 }

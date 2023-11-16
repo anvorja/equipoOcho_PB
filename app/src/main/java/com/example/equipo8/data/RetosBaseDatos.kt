@@ -10,10 +10,10 @@ import com.example.equipo8.utils.Constants.NAME_BD
 @Database(entities = [Retos::class], version = 1)
 abstract class RetosBaseDatos : RoomDatabase() {
 
-    abstract fun challengesDao(): RetosDao
+    abstract fun retosDao(): RetosDao
 
     companion object{
-        fun getDatabase(context: Context): RetosBaseDatos {
+        fun getBaseDatos(context: Context): RetosBaseDatos {
             return Room.databaseBuilder(
                 context.applicationContext,
                 RetosBaseDatos::class.java,
