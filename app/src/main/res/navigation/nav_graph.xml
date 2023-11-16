@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/inicioGame">
+    <fragment
+        android:id="@+id/inicioGame"
+        android:name="com.example.equipo8.view.fragment.inicio"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_home2_to_instructions"
+            app:destination="@id/guia" />
+        <action
+            android:id="@+id/inicioGame_to_restos"
+            app:destination="@id/listaRetos" />
+    </fragment>
+    <fragment
+        android:id="@+id/guia"
+        android:name="com.example.equipo8.view.fragment.instrucciones"
+        android:label="fragment_instrucciones"
+        tools:layout="@layout/fragment_instrucciones" />
+    <fragment
+        android:id="@+id/listaRetos"
+        android:name="com.example.equipo8.view.fragment.reto"
+        android:label="fragment_reto"
+        tools:layout="@layout/fragment_reto" />
+</navigation>
