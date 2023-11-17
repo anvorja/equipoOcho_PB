@@ -46,6 +46,7 @@ class inicio : Fragment() {
         rotateBottleListener()
         playMusic()
         toolBarListeners()
+
     }
 
     override fun onDestroyView() {
