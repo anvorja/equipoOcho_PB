@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.example.equipo8.R
 import com.example.equipo8.databinding.ActivityMainBinding
 import com.example.equipo8.view.fragment.inicio
 
@@ -17,9 +18,11 @@ class MainActivity : AppCompatActivity() {
 
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
-            val intent = Intent(this, inicio::class.java)
-            startActivity(intent)
-            finish()
+            val fragmentManager = supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            val fragment = inicio()
+            fragmentTransaction.add(R.id.fragment_container, fragment)
+            fragmentTransaction.commit()
         },5000)
     }
 }
