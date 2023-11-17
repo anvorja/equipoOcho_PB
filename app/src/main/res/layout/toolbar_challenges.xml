@@ -14,7 +14,7 @@
                 android:id="@+id/toolbar_challenges"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/brigthness_black"
+                android:background="@color/brillo_negro"
                 app:theme="@style/toolbarTheme">
 
                 <ImageView

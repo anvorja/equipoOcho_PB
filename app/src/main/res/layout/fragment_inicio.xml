@@ -10,24 +10,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/fondomadera"
-        />
+        android:src="@drawable/fondomadera" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:cardCornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="@id/botella"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2"
 
         >
+
         <com.google.android.material.appbar.AppBarLayout
-            android:backgroundTint="@color/brigthness_black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:backgroundTint="@color/brillo_negro">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
@@ -41,12 +41,11 @@
         android:id="@+id/botella"
         android:layout_width="250dp"
         android:layout_height="350dp"
+        android:src="@drawable/glassbottle"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:src="@drawable/glassbottle"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnPlayBotella"
@@ -62,30 +61,29 @@
 
     <TextView
         android:id="@+id/txtBtnTocarJugar"
-        android:layout_width="wrap_content"
+        android:layout_width="136dp"
         android:layout_height="wrap_content"
+        android:text="@string/txtBnTocarJugarInicio"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlayBotella"
+        app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPlayBotella"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintRight_toRightOf="parent" />
+
     <TextView
         android:id="@+id/conteo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="90sp"
         android:textColor="@color/orange"
+        android:textSize="90sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="@+id/botella"
         app:layout_constraintBottom_toBottomOf="@+id/botella"
         app:layout_constraintLeft_toLeftOf="@+id/botella"
         app:layout_constraintRight_toRightOf="@+id/botella"
+        app:layout_constraintTop_toTopOf="@+id/botella" />
 
-        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
