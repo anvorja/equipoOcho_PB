@@ -2,4 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="reglas_de_juego"
+        android:textColor="@color/dark_orange"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
 </layout>

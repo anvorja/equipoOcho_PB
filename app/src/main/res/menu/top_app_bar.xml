@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/calificacion"
+        android:title="@string/iconoCalificacionEnPlayStore"
+        android:icon="@drawable/calificacion"
+        app:showAsAction="always"
+        />
 
+    <item
+        android:id="@+id/parlante"
+        android:title="@string/iconoToolbarParlante"
+        android:icon="@drawable/sonido"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/instrucciones"
+        android:title="@string/iconoToolbarInstrucciones"
+        android:icon="@drawable/boton_instrucciones"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/agregar_reto"
+        android:title="agregar_reto"
+        android:icon="@drawable/agregar_reto_redondo"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/social_media"
+        android:title="@string/iconoToolbarSocial_media"
+        android:icon="@drawable/social_media"
+        app:showAsAction="always"
+        />
 </menu>
