@@ -4,7 +4,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/brigthness_black"
+    android:background="@color/brillo_negro"
     android:elevation="8dp">
 
     <!-- Botón de flecha atrás -->
