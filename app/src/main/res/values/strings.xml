@@ -6,4 +6,7 @@
     <string name="iconoToolbarParlante">parlante</string>
     <string name="iconoToolbarInstrucciones">instrucciones</string>
     <string name="iconoToolbarSocial_media">social_media</string>
+    <string name="back_button_description">Volver a la pantalla principal</string>
+
+
 </resources>
