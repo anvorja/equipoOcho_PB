@@ -21,6 +21,7 @@ import com.example.equipo8.R
 import com.example.equipo8.databinding.FragmentInicioBinding
 import kotlin.random.Random
 
+
 class inicio : Fragment() {
     private lateinit var binding: FragmentInicioBinding
     private lateinit var reproductor: MediaPlayer
@@ -34,6 +35,7 @@ class inicio : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentInicioBinding.inflate(inflater)
         return binding.root
     }

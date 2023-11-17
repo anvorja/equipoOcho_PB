@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">equipo8</string>
     <string name="txtBnTocarJugarInicio">Presiona</string>
+    <string name="pico_botella">Pico Botella</string>
     <string name="iconoCalificacionEnPlayStore">calificacion</string>
     <string name="iconoToolbarParlante">parlante</string>
     <string name="iconoToolbarInstrucciones">instrucciones</string>
     <string name="iconoToolbarSocial_media">social_media</string>
-
 </resources>
