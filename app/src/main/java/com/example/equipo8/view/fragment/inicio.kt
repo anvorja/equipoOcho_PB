@@ -16,6 +16,8 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import androidx.core.animation.doOnEnd
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.equipo8.R
 import com.example.equipo8.databinding.FragmentInicioBinding
@@ -71,7 +73,7 @@ class inicio : Fragment() {
                     }
                 }
                 R.id.instrucciones -> {
-                    findNavController().navigate(R.id.action_home2_to_instructions)
+                    findNavController().navigate(R.id.action_home_to_instructions)
                 }
 
                 R.id.calificacion -> {
@@ -88,7 +90,7 @@ class inicio : Fragment() {
                     startActivity(Intent.createChooser(intent, "Compartir aplicación"))
                 }
                 R.id.agregar_reto -> {
-                    findNavController().navigate(R.id.inicioGame_a_retos)
+                    this.findNavController().navigate(R.id.action_home_to_retos)
                 }
 
             }

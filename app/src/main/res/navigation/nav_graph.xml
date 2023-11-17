@@ -10,10 +10,10 @@
         android:label="fragment_inicio"
         tools:layout="@layout/fragment_inicio" >
         <action
-            android:id="@+id/action_home2_to_instructions"
+            android:id="@+id/action_home_to_instructions"
             app:destination="@id/guia" />
         <action
-            android:id="@+id/inicioGame_a_retos"
+            android:id="@+id/action_home_to_retos"
             app:destination="@id/listaRetos" />
     </fragment>
     <fragment
@@ -23,7 +23,37 @@
         tools:layout="@layout/fragment_instrucciones" />
     <fragment
         android:id="@+id/listaRetos"
-        android:name="com.example.equipo8.view.fragment.reto"
-        android:label="fragment_reto"
-        tools:layout="@layout/fragment_reto" />
+        android:name="com.example.equipo8.view.fragment.HomeRetoFragment"
+        android:label="fragment_home_reto"
+        tools:layout="@layout/fragment_home_reto">
+        <action
+            android:id="@+id/action_listaRetos_to_agregarRetoFragment"
+            app:destination="@id/agregarRetoFragment" />
+        <action
+            android:id="@+id/action_listaRetos_to_detalleRetoFragment"
+            app:destination="@id/detalleRetoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarRetoFragment"
+        android:name="com.example.equipo8.view.fragment.AgregarRetoFragment"
+        android:label="fragment_agregar_reto"
+        tools:layout="@layout/fragment_agregar_reto" />
+    <fragment
+        android:id="@+id/detalleRetoFragment"
+        android:name="com.example.equipo8.view.fragment.DetalleRetoFragment"
+        android:label="fragment_detalle_reto"
+        tools:layout="@layout/fragment_detalle_reto" >
+        <action
+            android:id="@+id/action_detalleRetoFragment_to_editarRetoFragment"
+            app:destination="@id/editarRetoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarRetoFragment"
+        android:name="com.example.equipo8.view.fragment.EditarRetoFragment"
+        android:label="fragment_editar_reto"
+        tools:layout="@layout/fragment_editar_reto" >
+        <action
+            android:id="@+id/action_editarRetoFragment_to_listaRetos"
+            app:destination="@id/listaRetos" />
+    </fragment>
 </navigation>

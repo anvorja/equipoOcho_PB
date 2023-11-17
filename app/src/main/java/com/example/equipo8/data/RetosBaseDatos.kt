@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.equipo8.model.Retos
+import com.example.equipo8.model.Reto
 import com.example.equipo8.utils.Constants.NAME_BD
 
-@Database(entities = [Retos::class], version = 1)
+@Database(entities = [Reto::class], version = 1)
 abstract class RetosBaseDatos : RoomDatabase() {
 
     abstract fun retosDao(): RetosDao

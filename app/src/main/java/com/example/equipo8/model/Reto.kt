@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 import java.io.Serializable
 
 @Entity
-data class Retos(
+data class Reto(
     @PrimaryKey(autoGenerate = true)
     val id:Int = 0,
-    val name:String
+    val descripcion:String
 ):Serializable
