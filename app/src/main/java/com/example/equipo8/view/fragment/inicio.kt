@@ -23,11 +23,11 @@ import kotlin.random.Random
 
 class inicio : Fragment() {
     private lateinit var binding: FragmentInicioBinding
-    private lateinit var mediaPlayer: MediaPlayer
-    private lateinit var spinningMediaPlayer: MediaPlayer
-    private var currentRotation = 0f
-    private var isAnimating = false
-    private var soundIsOn = false
+    private lateinit var reproductor: MediaPlayer
+    private lateinit var sonidoBotellaGirando: MediaPlayer
+    private var rotacion = 0f
+    private var animacion = false
+    private var sonido = false
     private var url = "https://play.google.com/store/apps/details?id=com.nequi.MobileApp&hl=es_419&gl=es"
 
     override fun onCreateView(
@@ -40,99 +40,96 @@ class inicio : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        blinkingBtnEffect()
-        rotateBottleListener()
-        playMusic()
-        toolBarListeners()
+        efectoParpadeoBoton()
+        escuchaBotellaRotacion()
+        activarMusica()
+        escuhaDelToolbar()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        mediaPlayer.stop()
-        mediaPlayer.release()
+        reproductor.stop()
+        reproductor.release()
     }
 
-    private fun toolBarListeners() {
+    private fun escuhaDelToolbar() {
         binding.toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
-                R.id.sound -> {
+                R.id.parlante -> {
 
-                    if(soundIsOn){
-                        item.setIcon(R.drawable.sound_off)
-                        mediaPlayer.setVolume(0.0f, 0.0f)
-                        soundIsOn = false
+                    sonido = if(sonido){
+                        item.setIcon(R.drawable.silenciar)
+                        reproductor.setVolume(0.0f, 0.0f)
+                        false
                     }else{
-                        item.setIcon(R.drawable.sound_on)
-                        mediaPlayer.setVolume(1.0f, 1.0f)
-                        soundIsOn = true
+                        item.setIcon(R.drawable.sonido)
+                        reproductor.setVolume(1.0f, 1.0f)
+                        true
 
                     }
                 }
-                R.id.game -> {
+                R.id.instrucciones -> {
                     findNavController().navigate(R.id.action_home2_to_instructions)
                 }
 
-                R.id.favorite -> {
+                R.id.calificacion -> {
                     val i = Intent(Intent.ACTION_VIEW)
                     i.data = Uri.parse(url)
                     startActivity(i)
                 }
 
-                R.id.share -> {
-                    val text = "Oye, prueba esta increíble aplicación\n\n$url"
+                R.id.social_media -> {
+                    val text = "Deberías dejar el miedo y jugar a retos con tus amigos. Visita Play Store y descarga Pico Botella\n\n$url"
                     val intent = Intent(Intent.ACTION_SEND)
                     intent.type = "text/plain"
                     intent.putExtra(Intent.EXTRA_TEXT, text)
-                    startActivity(Intent.createChooser(intent, "Compartir enlace"))
+                    startActivity(Intent.createChooser(intent, "Compartir aplicación"))
                 }
-                R.id.add -> {
+                R.id.agregar_reto -> {
                     findNavController().navigate(R.id.inicioGame_to_restos)
                 }
 
             }
-
             true
         }
     }
 
 
-    private fun playSpinningSound() {
-        spinningMediaPlayer = MediaPlayer.create(requireView().context, R.raw.spinningbottle)
-        spinningMediaPlayer.start()    }
+    private fun reproducirSonidoBotella() {
+        sonidoBotellaGirando = MediaPlayer.create(requireView().context, R.raw.sonido_botella)
+        sonidoBotellaGirando.start()    }
 
-    private fun playMusic() {
-        mediaPlayer = MediaPlayer.create(requireView().context, R.raw.mainviewmusic)
-
-        mediaPlayer.isLooping = true
-
-        mediaPlayer.start()
-        soundIsOn = true
+    private fun activarMusica() {
+        reproductor = MediaPlayer.create(requireView().context, R.raw.intro_game)
+        reproductor.isLooping = true
+        reproductor.start()
+        sonido = true
     }
 
-    fun getRandomDirection(): Int {
+    fun giroAleatorioBotella(): Int {
         return Random.nextInt(361)
     }
 
-    private fun rotateBottleListener() {
-        binding.botonGirarBotella.setOnClickListener {
-            playSpinningSound()
-            rotationBottleEffect()
+    private fun escuchaBotellaRotacion() {
+        binding.btnPlayBotella.setOnClickListener {
+            reproducirSonidoBotella()
+            efectoRotacionEnBotella()
         }
     }
 
-    private fun rotationBottleEffect() {
-        if (!isAnimating) {
-            currentRotation = currentRotation + getRandomDirection()
-            isAnimating = true
+    private fun efectoRotacionEnBotella() {
+        if (!animacion) {
+            rotacion += giroAleatorioBotella()
+            animacion = true
             binding.botella.animate()
-                .rotation(currentRotation)
+                .rotation(rotacion)
                 .setDuration(3000)
                 .setListener(object : Animator.AnimatorListener {
                     override fun onAnimationStart(animation: Animator) {}
 
                     override fun onAnimationEnd(animation: Animator) {
-                        isAnimating = false
-                        startCountdown()
+                        animacion = false
+                        iniciarConteo()
                     }
 
                     override fun onAnimationCancel(animation: Animator) {}
@@ -143,37 +140,35 @@ class inicio : Fragment() {
         }
     }
 
-    private fun startCountdown() {
-        val countdownAnimator = ValueAnimator.ofInt(3, -1)
-        countdownAnimator.duration = 4000
-        countdownAnimator.interpolator = LinearInterpolator()
-        countdownAnimator.addUpdateListener { animation ->
+    private fun iniciarConteo() {
+        val animadorConteoRegresivo = ValueAnimator.ofInt(3, -1)
+        animadorConteoRegresivo.duration = 4000
+        animadorConteoRegresivo.interpolator = LinearInterpolator()
+        animadorConteoRegresivo.addUpdateListener { animation ->
             val value = animation.animatedValue as Int
-            binding.countdown.text = value.toString()
+            binding.conteo.text = value.toString()
         }
-        countdownAnimator.doOnEnd {
-            binding.countdown.text = ""
-            /*
-                        showRandomChallenge()
-            */
+        animadorConteoRegresivo.doOnEnd {
+            binding.conteo.text = ""
+
         }
-        countdownAnimator.start()
+        animadorConteoRegresivo.start()
     }
 
-    private fun blinkingBtnEffect() {
-        val orangeColor = Color.parseColor("#FFA500")
-        val anim = ValueAnimator.ofObject(ArgbEvaluator(), Color.TRANSPARENT, orangeColor, Color.TRANSPARENT)
+    private fun efectoParpadeoBoton() {
+        val establecerColor = Color.parseColor("#FFA500")
+        val parpadeo = ValueAnimator.ofObject(ArgbEvaluator(), Color.TRANSPARENT, establecerColor, Color.TRANSPARENT)
 
-        anim.duration = 1000
-        anim.repeatMode = ValueAnimator.REVERSE
-        anim.repeatCount = Animation.INFINITE
+        parpadeo.duration = 1000
+        parpadeo.repeatMode = ValueAnimator.REVERSE
+        parpadeo.repeatCount = Animation.INFINITE
 
-        anim.addUpdateListener { animation ->
+        parpadeo.addUpdateListener { animation ->
             val color = animation.animatedValue as Int
-            binding.botonGirarBotella.backgroundTintList = ColorStateList.valueOf(color)
+            binding.btnPlayBotella.backgroundTintList = ColorStateList.valueOf(color)
         }
 
-        anim.start()
+        parpadeo.start()
     }
 
 }
