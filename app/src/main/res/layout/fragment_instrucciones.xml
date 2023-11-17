@@ -8,7 +8,7 @@
     tools:context=".view.fragment.instrucciones"
     android:background="@color/brillo_negro">
 
-    <!-- Incluye la barra de herramientas -->
+
     <include
         android:id="@+id/contentToolbar"
         layout="@layout/toolbar"

@@ -13,7 +13,7 @@
             android:id="@+id/action_home2_to_instructions"
             app:destination="@id/guia" />
         <action
-            android:id="@+id/inicioGame_to_restos"
+            android:id="@+id/inicioGame_a_retos"
             app:destination="@id/listaRetos" />
     </fragment>
     <fragment

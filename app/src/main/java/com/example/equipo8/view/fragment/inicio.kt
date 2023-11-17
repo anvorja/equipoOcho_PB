@@ -88,7 +88,7 @@ class inicio : Fragment() {
                     startActivity(Intent.createChooser(intent, "Compartir aplicación"))
                 }
                 R.id.agregar_reto -> {
-                    findNavController().navigate(R.id.inicioGame_to_restos)
+                    findNavController().navigate(R.id.inicioGame_a_retos)
                 }
 
             }
