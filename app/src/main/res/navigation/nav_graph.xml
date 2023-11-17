@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/inicioGame">
+    app:startDestination="@id/homeJuego">
     <fragment
-        android:id="@+id/inicioGame"
+        android:id="@+id/homeJuego"
         android:name="com.example.equipo8.view.fragment.inicio"
         android:label="fragment_inicio"
         tools:layout="@layout/fragment_inicio" >
@@ -20,7 +20,11 @@
         android:id="@+id/guia"
         android:name="com.example.equipo8.view.fragment.instrucciones"
         android:label="fragment_instrucciones"
-        tools:layout="@layout/fragment_instrucciones" />
+        tools:layout="@layout/fragment_instrucciones" >
+        <action
+            android:id="@+id/action_guia_to_homeJuego"
+            app:destination="@id/homeJuego" />
+    </fragment>
     <fragment
         android:id="@+id/listaRetos"
         android:name="com.example.equipo8.view.fragment.HomeRetoFragment"
@@ -32,6 +36,9 @@
         <action
             android:id="@+id/action_listaRetos_to_detalleRetoFragment"
             app:destination="@id/detalleRetoFragment" />
+        <action
+            android:id="@+id/action_listaRetos_to_homeJuego"
+            app:destination="@id/homeJuego" />
     </fragment>
     <fragment
         android:id="@+id/agregarRetoFragment"

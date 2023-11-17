@@ -15,6 +15,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
+import android.widget.Button
+import android.widget.Toolbar
+import androidx.appcompat.widget.ButtonBarLayout
 import androidx.core.animation.doOnEnd
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -24,7 +27,7 @@ import com.example.equipo8.databinding.FragmentInicioBinding
 import kotlin.random.Random
 
 
-class inicio : Fragment() {
+class inicio : Fragment(R.layout.fragment_inicio) {
     private lateinit var binding: FragmentInicioBinding
     private lateinit var reproductor: MediaPlayer
     private lateinit var sonidoBotellaGirando: MediaPlayer
@@ -73,7 +76,7 @@ class inicio : Fragment() {
                     }
                 }
                 R.id.instrucciones -> {
-                    findNavController().navigate(R.id.action_home_to_instructions)
+                    //findNavController().navigate(R.id.action_home_to_instructions)
                 }
 
                 R.id.calificacion -> {
@@ -90,7 +93,7 @@ class inicio : Fragment() {
                     startActivity(Intent.createChooser(intent, "Compartir aplicación"))
                 }
                 R.id.agregar_reto -> {
-                    this.findNavController().navigate(R.id.action_home_to_retos)
+                    findNavController().navigate(R.id.action_home_to_retos)
                 }
 
             }

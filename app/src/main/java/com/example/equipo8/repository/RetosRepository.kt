@@ -8,11 +8,18 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class RetosRepository(val context:Context) {
-    private var  retosDao: RetosDao = RetosBaseDatos.getBaseDatos(context).retosDao()
+    private var retosDao: RetosDao = RetosBaseDatos.getBaseDatos(context).retosDao()
 
-    suspend fun obtenerListaRetos():MutableList<Reto>{
+    suspend fun getChallenge():MutableList<Reto>{
         return withContext(Dispatchers.IO){
-            retosDao.obtenerListadoRetos()
+            retosDao.getChallenge()
+        }
+    }
+
+    //Insertar Reto en RoomDB
+    suspend fun saveChallenge(reto:Reto){
+        withContext(Dispatchers.IO){
+            retosDao.saveChallenge(reto)
         }
     }
 

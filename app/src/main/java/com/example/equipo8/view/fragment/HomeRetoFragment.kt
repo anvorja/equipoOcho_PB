@@ -14,7 +14,7 @@ import com.example.equipo8.model.Reto
 import com.example.equipo8.view.adapter.RetosAdapter
 import com.example.equipo8.viewmodel.RetosViewModel
 
-class HomeRetoFragment : Fragment() {
+class HomeRetoFragment : Fragment(R.layout.fragment_home_reto) {
     private lateinit var binding: FragmentHomeRetoBinding
     private val retosViewModel: RetosViewModel by viewModels()
     override fun onCreateView(
@@ -37,18 +37,19 @@ class HomeRetoFragment : Fragment() {
     private fun observerViewModel() {
         //observerListInventory()
     }
-    /*private fun observerListInventory() {
-        retosViewModel.obtenerListaDeRetos()
-        retosViewModel.listInventory.observe(viewLifecycleOwner){ lista_retos->
+
+    private fun observerListInventory() {
+        retosViewModel.getChallenges()
+        retosViewModel.listChallenge.observe(viewLifecycleOwner){ listaRetos->
             val recycler = binding.recyclerview
             val layoutManager = LinearLayoutManager(context)
             recycler.layoutManager = layoutManager
-            val adapter = RetosAdapter(lista)
+            val adapter = RetosAdapter(listaRetos)
             recycler.adapter = adapter
             adapter.notifyDataSetChanged()
         }
 
-    }*/
+    }
 
     private fun controladores() {
         binding.fbagregar.setOnClickListener {

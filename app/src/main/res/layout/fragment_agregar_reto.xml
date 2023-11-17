@@ -14,7 +14,7 @@
             android:id="@+id/tvNameAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adicionar Artículo"
+            android:text="Nuevo Reto"
             android:textSize="25sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:hint="Nombre artículo"
+            android:hint="Agrega tu Reto"
             android:background="@color/white"
             android:padding="12dp"
             android:inputType="text"
@@ -35,42 +35,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <EditText
-            android:id="@+id/etPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:hint="Precio"
-            android:background="@color/white"
-            android:padding="12dp"
-            android:inputType="number"
-            app:layout_constraintTop_toBottomOf="@id/etName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <EditText
-            android:id="@+id/etQuantity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:hint="Cantidad"
-            android:background="@color/white"
-            android:padding="12dp"
-            android:inputType="number"
-            app:layout_constraintTop_toBottomOf="@id/etPrice"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
 
         <Button
-            android:id="@+id/btnSaveInventory"
+            android:id="@+id/btnSaveChallenge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="Guardar"
             android:enabled="false"
-            app:layout_constraintTop_toBottomOf="@+id/etQuantity"
+            app:layout_constraintTop_toBottomOf="@+id/etName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
