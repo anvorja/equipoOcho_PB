@@ -8,6 +8,6 @@ class RetosViewHolder (binding : ChallengesInventoryBinding):RecyclerView.ViewHo
     val bindingReto = binding
 
     fun cargarDatosReto(retos: Retos){
-        bindingReto.descripcionDelReto.text =  retos.name
+       // bindingReto.descripcionDelReto.text =  retos.name
     }
 }
